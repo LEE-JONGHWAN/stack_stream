@@ -12,13 +12,24 @@ public class StreamPipelinesExample {
 				new Member("박수미", Member.FEMALE, 27)
 		);
 		
-		double ageAvg =   list.stream()
-			.filter(m -> m.getSex()==Member.MALE)
-			.mapToInt(Member :: getAge)
-			.average()
-			.getAsDouble();
+//		double ageAvg =   list.stream()
+//			.filter(m -> m.getSex()==Member.MALE)
+//			.mapToInt(Member :: getAge)
+//			.average()
+//			.getAsDouble();
+//		
+//		System.out.println("남자 평균 나이: " + ageAvg);
 		
-		System.out.println("남자 평균 나이: " + ageAvg);
+		
+		double ageAvg =   list.stream()
+				.filter(m -> m.getSex()==Member.MALE)
+				.mapToInt(Member :: getAge)
+				.average().orElse(-1.0);
+		
+//			if(ageAvg.isPresent())
+				System.out.println("남자 평균 나이: " + ageAvg);
+//			else
+//			System.out.println("남자 평균 나이: " + ageAvg);
 	}
 }
 

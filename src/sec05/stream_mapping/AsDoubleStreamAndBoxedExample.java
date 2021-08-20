@@ -11,12 +11,16 @@ public class AsDoubleStreamAndBoxedExample {
 		intStream
 			.asDoubleStream()
 			.forEach(d -> System.out.println(d));
+		intStream.close();
 			
 		System.out.println();
 		
 		intStream = Arrays.stream(intArray);
 		intStream
 			.boxed()
-			.forEach(obj -> System.out.println(obj.intValue()));
+//			.forEach(obj -> System.out.println(obj.intValue()));
+			.forEach(obj -> System.out.println(obj.getClass().getName() + ":" + obj));
+		intStream.close();
+//		.forEach(obj -> System.out.println(obj.intValue()));
 	}
 }

@@ -14,12 +14,14 @@ public class FilteringExample {
 		
 		names.stream()
 			.filter(n -> n.startsWith("신"))
-			.forEach(n -> System.out.println(n));
+//			.forEach(n -> System.out.println(n));
+			.forEach(System.out::println);
 		System.out.println();
 		
 		names.stream()
 			.distinct()
 			.filter(n -> n.startsWith("신"))
-			.forEach(n -> System.out.println(n));		
+//			.forEach(n -> System.out.println(n));
+			.forEach(System.out::println);
 	}
 }

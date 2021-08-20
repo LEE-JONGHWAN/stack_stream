@@ -13,6 +13,7 @@ public class MapExample {
 			
 		studentList.stream()
 			.mapToInt(Student :: getScore)
-			.forEach(score -> System.out.println(score));
+			.forEach(System.out::println);
+//			.forEach(score -> System.out.println(score));
 	}
 }

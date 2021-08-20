@@ -17,7 +17,6 @@ public class FromFileContentExample {
 		//Files.lines() 메소드 이용
 		try(Stream<String> stream = Files.lines(path, Charset.defaultCharset())) {
 		stream.forEach( System.out :: println );
-		stream.close();
 		System.out.println();
 		}
 		//BufferedReader의 lines() 메소드 이용
@@ -26,7 +25,6 @@ public class FromFileContentExample {
 		BufferedReader br = new BufferedReader(fileReader);
 			Stream<String>	stream2 = br.lines()) {
 		stream2.forEach( System.out :: println );
-		stream2.close();
 			}
 
 	}
