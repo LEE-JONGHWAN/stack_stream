@@ -3,6 +3,7 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class StreamExample {
@@ -13,13 +14,21 @@ public class StreamExample {
 			new Member("신용권", "개발자")
 		);
 		
-		Map<String, List<String>> groupingMap = list.stream()
-			.collect(
-				Collectors.groupingBy(
-					Member::getJob, 
-					Collectors.mapping(Member::getName, Collectors.toList())
-				)
-			); 
+//		Map<String, List<String>> groupingMap = list.stream()
+//			.collect(
+//				Collectors.groupingBy(
+//					Member::getJob, 
+//					Collectors.mapping(Member::getName, Collectors.toList())
+//				)
+//			);
+		Map<String, List<String>> groupingMap = list
+				.stream()
+				.collect(Collectors.groupingBy
+						(Member::getJob,
+						 TreeMap::new,
+						 Collectors.mapping(Member::getName, Collectors.toList())
+						 )
+					);
 
 		System.out.print("[개발자] ");
 		groupingMap.get("개발자").stream().forEach(s -> System.out.print(s + " "));

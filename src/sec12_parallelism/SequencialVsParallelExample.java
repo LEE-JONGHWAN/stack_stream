@@ -6,7 +6,7 @@ import java.util.List;
 public class SequencialVsParallelExample {
 	//요소 처리
 	public static void work(int value) {
-		try { Thread.sleep(100); } catch (InterruptedException e) {}
+		try { Thread.sleep(1); } catch (InterruptedException e) {}
 	}
 
 	//순차 처리
@@ -37,6 +37,9 @@ public class SequencialVsParallelExample {
 		//병렬 스트림 처리 시간 구하기
 		long timeParallel = testParallel(list);
 		
+		System.out.println("p " + timeParallel);
+		System.out.println("s " + Sequencial);
+		
 		if(Sequencial < timeParallel) {
 			System.out.println("성능 테스트 결과: 순차 처리가 더빠름");
 		} else {
@@ -44,3 +47,57 @@ public class SequencialVsParallelExample {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

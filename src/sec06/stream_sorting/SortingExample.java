@@ -20,10 +20,16 @@ public class SortingExample {
 			new Student("신용권", 10),
 			new Student("유미선", 20)
 		);
+		List<Double> dblList = null;
+		
+//		dblList.stream()
+//		.sorted(Comparator.reverseOrder())
+//		.forEach(System.out::print);
 		
 		studentList.stream()
 			.sorted( )
 			.forEach(s -> System.out.print(s.getScore() + ","));
+		
 		System.out.println();
 		
 		studentList.stream()
@@ -31,3 +37,36 @@ public class SortingExample {
 		.forEach(s -> System.out.print(s.getScore() + ","));	
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

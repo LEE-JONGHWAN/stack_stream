@@ -13,9 +13,9 @@ public class MaleStudentExample {
 		);
 		
 		MaleStudent maleStudent = totalList.stream()
-				.filter(s -> s.getSex() == Student.Sex.MALE)
-				//.collect(MaleStudent :: new, MaleStudent :: accumulate, MaleStudent :: combine); 
-				.collect(()->new MaleStudent(), (r, t)->r.accumulate(t), (r1, r2)->r1.combine(r2));
+				.filter(s -> s.getSex() == Student.Sex.FEMALE)
+				.collect(MaleStudent :: new, MaleStudent :: accumulate, MaleStudent :: combine); 
+//				.collect(()->new MaleStudent(), (r, t)->r.accumulate(t), (r1, r2)->r1.combine(r2));
 		
 		maleStudent.getList().stream()
 			.forEach(s -> System.out.println(s.getName()));

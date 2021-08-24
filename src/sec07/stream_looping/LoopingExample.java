@@ -6,9 +6,14 @@ public class LoopingExample {
 	public static void main(String[] args) {
 		int[] intArr = { 1, 2, 3, 4, 5 };
 		
+		System.out.println();
+//		people.stream().peek(s -> {
+//			s.setName(s.getName().toUpperCase());
+//		}).forEach(s -> System.out.println(s.getName()));
+		
 		System.out.println("[peek()를 마지막에 호출한 경우]");
 		Arrays.stream(intArr)
-			.filter(a -> a%2==0)
+			.filter(a -> {return a%2==0; })
 			.peek(n -> System.out.println(n));   //동작하지 않음
 		
 		System.out.println("[최종 처리 메소드를 마지막에 호출한 경우]");

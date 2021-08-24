@@ -20,10 +20,14 @@ public class GroupingAndReductionExample {
 		
 		//성별로 평균 점수를 저장하는 Map 얻기
 		Stream<Student> totalStream = totalList.stream();
-		Function<Student, Student.Sex> classifier = Student :: getSex;
-		ToDoubleFunction<Student> mapper = Student :: getScore;
-		Collector<Student, ?, Double> collector1 = Collectors.averagingDouble(mapper);
-		Collector<Student, ?, Map<Student.Sex, Double>> collector2 = Collectors.groupingBy(classifier, collector1);
+		Function<Student, Student.Sex> clsBySx = Student :: getSex;
+		ToDoubleFunction<Student> toScore = Student :: getScore;
+		
+		Collector<Student, ?, Double> collector1 
+			= Collectors.averagingDouble(toScore);
+		
+		Collector<Student, ?, Map<Student.Sex, Double>> collector2 
+				= Collectors.groupingBy(clsBySx, collector1);
 		Map<Student.Sex, Double> mapBySex = totalStream.collect(collector2);
 		
 		/*Map<Student.Sex, Double> mapBySex = totalList.stream()

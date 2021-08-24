@@ -1,6 +1,7 @@
 ﻿package verify.exam07;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,9 +13,14 @@ public class StreamExample {
 			new Member("신용권", "개발자")
 		);
 		
+//		List<Member> developers = list.stream()
+//			.filter(m -> m.getJob().equals("개발자"))
+//			.collect(Collectors.toList());
+
 		List<Member> developers = list.stream()
-			.filter(m -> m.getJob().equals("개발자"))
-			.collect(Collectors.toList());
+				.filter(m->m.job.equals("개발자"))
+//				.collect(Collectors.toList());
+				.collect(Collectors.toCollection(LinkedList::new));
 		
 		developers.stream().forEach(m -> System.out.println(m.getName()));
 	}
